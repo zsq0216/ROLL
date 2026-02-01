@@ -85,7 +85,7 @@ validation:
   data_args:
     template: qwen2_5
     file_name:
-      - data/toy_swe_func_pytest.jsonl
+      - ../data/toy_swe_func_pytest.jsonl
   generating_args:
     max_new_tokens: ${response_length}
     top_p: 0.6
@@ -110,7 +110,7 @@ actor_train:
   data_args:
     template: qwen2_5
     file_name:
-      - data/toy_swe_func_pytest.jsonl
+      - ../data/toy_swe_func_pytest.jsonl
     domain_interleave_probs:
       code_sandbox: 1.0
     dataset_dir: data
