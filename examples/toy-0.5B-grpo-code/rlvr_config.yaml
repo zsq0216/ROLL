@@ -106,7 +106,7 @@ actor_train:
     per_device_train_batch_size: 1
     gradient_accumulation_steps: 8
     warmup_steps: 1
-    max_steps: 10
+    max_steps: ${max_steps}
     num_train_epochs: 1
   data_args:
     template: qwen2_5
