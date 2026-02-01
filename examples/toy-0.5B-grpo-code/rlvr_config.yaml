@@ -141,11 +141,11 @@ actor_infer:
     num_return_sequences: ${num_return_sequences_in_group}
   data_args:
     template: qwen2_5
-    strategy_args:
-      strategy_name: vllm
-      strategy_config:
-        gpu_memory_utilization: 0.8
-        block_size: 16
+  strategy_args:
+    strategy_name: vllm
+    strategy_config:
+      gpu_memory_utilization: 0.8
+      block_size: 16
       max_model_len: 1024
       enforce_eager: true
   device_mapping: list(range(0,1))
