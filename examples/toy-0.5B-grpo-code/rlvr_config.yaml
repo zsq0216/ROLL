@@ -32,19 +32,19 @@ num_gpus_per_node: 1
 max_steps: 10
 save_steps: 10
 logging_steps: 1
-eval_steps: 10
+eval_steps: 0
 resume_from_checkpoint: false
 
 
-rollout_batch_size: 2  # prompt
+rollout_batch_size: 1  # prompt
 prompt_length: 1024
 response_length: 512
 
-num_return_sequences_in_group: 2
+num_return_sequences_in_group: 1
 ppo_epochs: 1
 adv_estimator: "grpo"
-use_kl_loss: true
-kl_loss_coef: 0.001
+use_kl_loss: false
+kl_loss_coef: 0.0
 
 # clip
 value_clip: 0.5
