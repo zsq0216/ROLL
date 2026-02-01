@@ -36,11 +36,11 @@ eval_steps: 10
 resume_from_checkpoint: false
 
 
-rollout_batch_size: 4  # prompt
+rollout_batch_size: 2  # prompt
 prompt_length: 1024
 response_length: 512
 
-num_return_sequences_in_group: 4
+num_return_sequences_in_group: 2
 ppo_epochs: 1
 adv_estimator: "grpo"
 use_kl_loss: true
@@ -116,7 +116,7 @@ actor_train:
     dataset_dir: data
     messages: messages
     interleave_probs: "1.0"
-    preprocessing_num_workers: 2
+    preprocessing_num_workers: 1
   strategy_args:
     strategy_name: megatron_train
     strategy_config:
@@ -141,12 +141,13 @@ actor_infer:
     num_return_sequences: ${num_return_sequences_in_group}
   data_args:
     template: qwen2_5
-  strategy_args:
-    strategy_name: vllm
-    strategy_config:
-      gpu_memory_utilization: 0.8
-      block_size: 16
-      max_model_len: 2048
+    strategy_args:
+      strategy_name: vllm
+      strategy_config:
+        gpu_memory_utilization: 0.8
+        block_size: 16
+      max_model_len: 1024
+      enforce_eager: true
   device_mapping: list(range(0,1))
   infer_batch_size: 1
 
