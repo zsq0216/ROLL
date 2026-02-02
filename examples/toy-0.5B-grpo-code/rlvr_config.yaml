@@ -30,7 +30,7 @@ tracker_kwargs:
 num_gpus_per_node: 1
 
 max_steps: 10
-save_steps: 10
+save_steps: 1000
 logging_steps: 1
 eval_steps: 100000
 resume_from_checkpoint: false
