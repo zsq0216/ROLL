@@ -81,7 +81,6 @@ whiten_advantages: true
 pretrain: Qwen/Qwen2.5-Coder-0.5B
 reward_pretrain: Qwen/Qwen2.5-Coder-0.5B
 
-validation: null
 
 
 actor_train:
