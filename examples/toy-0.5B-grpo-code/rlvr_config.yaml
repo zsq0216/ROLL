@@ -41,6 +41,7 @@ prompt_length: 1024
 response_length: 512
 
 num_return_sequences_in_group: 1
+generate_opt_level: 0
 ppo_epochs: 1
 adv_estimator: "grpo"
 use_kl_loss: false
@@ -137,6 +138,7 @@ actor_infer:
       block_size: 16
       max_model_len: 512
       enforce_eager: true
+      enable_prefix_caching: false
   device_mapping: list(range(0,1))
   infer_batch_size: 1
 
