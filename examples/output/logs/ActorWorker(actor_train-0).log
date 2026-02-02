@@ -1,0 +1,222 @@
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m [2026-02-02 04:11:55] [checkpoint_manager.py (79)] [INFO] [actor_train-0 0 / 1][PID 46043] checkpoint_config: {'type': 'file_system', 'output_dir': '/data/cpfs_0/rl_examples/models/toy-0.5B-grpo-code/20260202-041002'}
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m [2026-02-02 04:11:55] [upload_utils.py (24)] [INFO] [actor_train-0 0 / 1][PID 46043] use FileSystemUploader to upload /data/cpfs_0/rl_examples/models/toy-0.5B-grpo-code/20260202-041002
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m [2026-02-02 04:11:55] [megatron_strategy.py (72)] [INFO] [actor_train-0 0 / 1][PID 46043] training_args: {'output_dir': './output', 'max_steps': 80, 'num_train_epochs': 1, 'learning_rate': 1e-06, 'lr_scheduler_type': 'linear', 'weight_decay': 0, 'adam_beta1': 0.9, 'adam_beta2': 0.999, 'per_device_train_batch_size': 1, 'gradient_accumulation_steps': 1, 'seed': 42, 'data_seed': None, 'dataloader_num_workers': 0, 'fp16': False, 'bf16': True, 'tf32': None, 'warmup_ratio': 0.0, 'warmup_steps': 1, 'tensor_model_parallel_size': 1, 'pipeline_model_parallel_size': 1, 'expert_model_parallel_size': 1, 'use_distributed_optimizer': False, 'recompute_granularity': 'full', 'max_grad_norm': 1.0}
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m [2026-02-02 04:11:55,679] [INFO] [mcore_adapter.models.auto.modeling_auto]: Did not find /root/.cache/modelscope/hub/models/Qwen/Qwen2___5-Coder-0___5B/mca_config.json, loading HuggingFace config from /root/.cache/modelscope/hub/models/Qwen/Qwen2___5-Coder-0___5B
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m [2026-02-02 04:11:55,680] [INFO] [mcore_adapter.models.model_config]: Did not find /root/.cache/modelscope/hub/models/Qwen/Qwen2___5-Coder-0___5B/mca_config.json, loading HuggingFace config from /root/.cache/modelscope/hub/models/Qwen/Qwen2___5-Coder-0___5B
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m [2026-02-02 04:11:55,681] [INFO] [mcore_adapter.initialize]: Initializing mpu on device cuda:0
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m [2026-02-02 04:11:55,687] [INFO] [mcore_adapter.initialize]: initialized tensor model parallel with size 1
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m [2026-02-02 04:11:55,687] [INFO] [mcore_adapter.initialize]: initialized pipeline model parallel with size 1
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m [2026-02-02 04:11:55,689] [WARNING] [mcore_adapter.models.model_config]: Non-interleaved pipeline parallelism does not support overlapping p2p communication!
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m [2026-02-02 04:11:55,917] [INFO] [mcore_adapter.models.model_factory]: number of parameters on (tensor, pipeline, expert) model parallel rank (0, 0, 0): 494032768
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m [2026-02-02 04:11:56,441] [INFO] [mcore_adapter.models.model_factory]: End loading, cost: 0.762s
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m [rank0]:[W202 04:11:56.474886065 ProcessGroupNCCL.cpp:4561] [PG ID 0 PG GUID 0 Rank 0]  using GPU 0 to perform barrier as devices used by this process are currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect. Specify device_ids in barrier() to force use of a particular device, or call init_process_group() with a device_id.
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m [2026-02-02 04:11:56] [megatron_strategy.py (1022)] [INFO] [actor_train-0 0 / 1][PID 46043] megatron optimizer: <megatron.core.optimizer.optimizer.Float16OptimizerWithFloat16Params object at 0x7116b214fa90>
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m [2026-02-02 04:11:56] [megatron_strategy.py (1039)] [INFO] [actor_train-0 0 / 1][PID 46043] max steps pipeline 80
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m [2026-02-02 04:11:56] [megatron_strategy.py (1044)] [INFO] [actor_train-0 0 / 1][PID 46043] max steps worker train 80
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m [2026-02-02 04:11:56] [megatron_strategy.py (1071)] [INFO] [actor_train-0 0 / 1][PID 46043] [DistributedDataParallel(
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m   (module): McaGPTModel(
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m     (embedding): LanguageModelEmbedding(
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m       (word_embeddings): VocabParallelEmbedding()
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m       (embedding_dropout): Dropout(p=0.0, inplace=False)
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m     )
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m     (rotary_pos_emb): RotaryEmbedding()
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m     (decoder): TransformerBlock(
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m       (layers): ModuleList(
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m         (0-23): 24 x TransformerLayer(
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m           (input_layernorm): IdentityOp()
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m           (self_attention): SelfAttention(
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m             (core_attention): TEDotProductAttention(
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m               (flash_attention): FlashAttention()
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m               (fused_attention): FusedAttention()
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m               (unfused_attention): UnfusedDotProductAttention(
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m                 (scale_mask_softmax): FusedScaleMaskSoftmax()
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m                 (attention_dropout): Dropout(p=0.0, inplace=False)
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m               )
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m             )
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m             (linear_proj): TERowParallelLinear(in_features=896, out_features=896, bias=False, TP=1)
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m             (linear_qkv): TELayerNormColumnParallelLinear(in_features=896, out_features=1152, bias=True, TP=1)
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m             (q_layernorm): IdentityOp()
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m             (k_layernorm): IdentityOp()
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m           )
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m           (pre_cross_attn_layernorm): IdentityOp()
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m           (cross_attention): IdentityOp()
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m           (cross_attn_bda): IdentityFuncOp()
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m           (pre_mlp_layernorm): IdentityOp()
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m           (mlp): MLP(
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m             (linear_fc1): TELayerNormColumnParallelLinear(in_features=896, out_features=9728, bias=False, TP=1)
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m             (linear_fc2): TERowParallelLinear(in_features=4864, out_features=896, bias=False, TP=1)
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m           )
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m         )
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m       )
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m       (final_layernorm): RMSNorm()
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m     )
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m     (output_layer): ColumnParallelLinear(in_features=896, out_features=151936, bias=False, TP=1)
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m   )
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m )]
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m [2026-02-02 04:11:56] [base_worker.py (62)] [INFO] [actor_train-0 0 / 1][PID 46043] actor_train-0 initialized
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m [2026-02-02 04:11:58] [strategy.py (149)] [INFO] [actor_train-0 0 / 1][PID 46043] warmup setup_collective_group: model_update_actor_train_0_to_actor_infer_ rank: 0 world_size: 1
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m /usr/local/lib/python3.10/dist-packages/torch/cuda/memory.py:391: FutureWarning: torch.cuda.reset_max_memory_allocated now calls torch.cuda.reset_peak_memory_stats, which resets /all/ peak memory stats.
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m   warnings.warn(
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m /usr/local/lib/python3.10/dist-packages/torch/cuda/memory.py:417: FutureWarning: torch.cuda.reset_max_memory_cached now calls torch.cuda.reset_peak_memory_stats, which resets /all/ peak memory stats.
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m   warnings.warn(
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m [2026-02-02 04:11:59] [context_managers.py (41)] [INFO] [actor_train-0 0 / 1][PID 46043] actor_train/model_update_start_offload, memory allocated (GB): 1.9073486328125e-06, memory reserved (GB): 0.001953125, memory max reserved (GB): 0.001953125, rss (GB): 4.391471862792969 memory device used (GB): 2.21429443359375
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m [2026-02-02 04:11:59] [context_managers.py (41)] [INFO] [actor_train-0 0 / 1][PID 46043] actor_train/model_update_start_onload, memory allocated (GB): 0.9202098846435547, memory reserved (GB): 0.939453125, memory max reserved (GB): 0.939453125, rss (GB): 4.391624450683594 memory device used (GB): 3.15179443359375
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.3718 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 40.6043 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 39.0475 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 38.8263 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 38.0659 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 156.5964 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 156.5965 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m [2026-02-02 04:14:36] [context_managers.py (41)] [INFO] [actor_train-0 0 / 1][PID 46043] actor_train/model_update_end_onload, memory allocated (GB): 1.1702098846435547, memory reserved (GB): 1.173828125, memory max reserved (GB): 1.173828125, rss (GB): 4.642524719238281 memory device used (GB): 5.7724609375
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m [2026-02-02 04:14:36] [context_managers.py (41)] [INFO] [actor_train-0 0 / 1][PID 46043] actor_train/model_update_end_offload, memory allocated (GB): 1.9073486328125e-06, memory reserved (GB): 0.001953125, memory max reserved (GB): 1.173828125, rss (GB): 4.642524719238281 memory device used (GB): 4.6005859375
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.4872 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 157.4556 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m [2026-02-02 04:14:46] [context_managers.py (41)] [INFO] [actor_train-0 0 / 1][PID 46043] actor_train/compute_log_probs_start_offload, memory allocated (GB): 1.9073486328125e-06, memory reserved (GB): 0.001953125, memory max reserved (GB): 0.001953125, rss (GB): 4.644355773925781 memory device used (GB): 2.7490234375
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m [2026-02-02 04:14:47] [context_managers.py (41)] [INFO] [actor_train-0 0 / 1][PID 46043] actor_train/compute_log_probs_start_onload, memory allocated (GB): 0.9202098846435547, memory reserved (GB): 0.939453125, memory max reserved (GB): 0.939453125, rss (GB): 4.644355773925781 memory device used (GB): 3.6865234375
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.4991 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 1.6510 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m [2026-02-02 04:14:49] [context_managers.py (41)] [INFO] [actor_train-0 0 / 1][PID 46043] actor_train/compute_log_probs_end_onload, memory allocated (GB): 0.9325089454650879, memory reserved (GB): 3.12890625, memory max reserved (GB): 3.12890625, rss (GB): 5.148506164550781 memory device used (GB): 5.9521484375
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m [2026-02-02 04:14:49] [context_managers.py (41)] [INFO] [actor_train-0 0 / 1][PID 46043] actor_train/compute_log_probs_end_offload, memory allocated (GB): 0.9325089454650879, memory reserved (GB): 3.12890625, memory max reserved (GB): 3.12890625, rss (GB): 5.148658752441406 memory device used (GB): 5.9521484375
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.0016 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 2.1519 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m /usr/local/lib/python3.10/dist-packages/torch/cuda/memory.py:391: FutureWarning: torch.cuda.reset_max_memory_allocated now calls torch.cuda.reset_peak_memory_stats, which resets /all/ peak memory stats.
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m   warnings.warn(
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m /usr/local/lib/python3.10/dist-packages/torch/cuda/memory.py:417: FutureWarning: torch.cuda.reset_max_memory_cached now calls torch.cuda.reset_peak_memory_stats, which resets /all/ peak memory stats.
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m   warnings.warn(
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m [2026-02-02 04:14:49] [context_managers.py (41)] [INFO] [actor_train-0 0 / 1][PID 46043] actor_train/model_update_start_offload, memory allocated (GB): 0.003908634185791016, memory reserved (GB): 0.021484375, memory max reserved (GB): 0.021484375, rss (GB): 5.148811340332031 memory device used (GB): 2.8447265625
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m [2026-02-02 04:14:50] [context_managers.py (41)] [INFO] [actor_train-0 0 / 1][PID 46043] actor_train/model_update_start_onload, memory allocated (GB): 0.9241166114807129, memory reserved (GB): 0.939453125, memory max reserved (GB): 0.939453125, rss (GB): 5.148811340332031 memory device used (GB): 3.7626953125
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.4697 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 40.1887 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 38.7100 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 38.6938 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 38.3538 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 155.9954 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 155.9955 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m [2026-02-02 04:17:26] [context_managers.py (41)] [INFO] [actor_train-0 0 / 1][PID 46043] actor_train/model_update_end_onload, memory allocated (GB): 1.174116611480713, memory reserved (GB): 1.193359375, memory max reserved (GB): 1.193359375, rss (GB): 5.150707244873047 memory device used (GB): 6.0244140625
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m [2026-02-02 04:17:26] [context_managers.py (41)] [INFO] [actor_train-0 0 / 1][PID 46043] actor_train/model_update_end_offload, memory allocated (GB): 0.003908634185791016, memory reserved (GB): 0.021484375, memory max reserved (GB): 1.193359375, rss (GB): 5.150707244873047 memory device used (GB): 4.8525390625
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.3067 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 156.7720 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m [2026-02-02 04:17:36] [context_managers.py (41)] [INFO] [actor_train-0 0 / 1][PID 46043] actor_train/compute_log_probs_start_offload, memory allocated (GB): 0.003908634185791016, memory reserved (GB): 0.021484375, memory max reserved (GB): 0.021484375, rss (GB): 5.151165008544922 memory device used (GB): 2.8447265625
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m [2026-02-02 04:17:36] [context_managers.py (41)] [INFO] [actor_train-0 0 / 1][PID 46043] actor_train/compute_log_probs_start_onload, memory allocated (GB): 0.9241166114807129, memory reserved (GB): 0.939453125, memory max reserved (GB): 0.939453125, rss (GB): 5.151165008544922 memory device used (GB): 3.7626953125
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.4461 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.4395 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m [2026-02-02 04:17:37] [context_managers.py (41)] [INFO] [actor_train-0 0 / 1][PID 46043] actor_train/compute_log_probs_end_onload, memory allocated (GB): 0.9325089454650879, memory reserved (GB): 3.12890625, memory max reserved (GB): 3.12890625, rss (GB): 5.151165008544922 memory device used (GB): 5.9521484375
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m [2026-02-02 04:17:37] [context_managers.py (41)] [INFO] [actor_train-0 0 / 1][PID 46043] actor_train/compute_log_probs_end_offload, memory allocated (GB): 0.9325089454650879, memory reserved (GB): 3.12890625, memory max reserved (GB): 3.12890625, rss (GB): 5.151165008544922 memory device used (GB): 5.9521484375
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.0016 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.8873 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m [2026-02-02 04:17:37] [context_managers.py (41)] [INFO] [actor_train-0 0 / 1][PID 46043] actor_train/model_update_start_offload, memory allocated (GB): 0.003908634185791016, memory reserved (GB): 0.021484375, memory max reserved (GB): 0.021484375, rss (GB): 5.151165008544922 memory device used (GB): 2.8447265625
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m [2026-02-02 04:17:38] [context_managers.py (41)] [INFO] [actor_train-0 0 / 1][PID 46043] actor_train/model_update_start_onload, memory allocated (GB): 0.9241166114807129, memory reserved (GB): 0.939453125, memory max reserved (GB): 0.939453125, rss (GB): 5.151165008544922 memory device used (GB): 3.7626953125
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.4932 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 39.6142 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 38.7308 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 37.9907 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 37.9827 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 154.3705 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 154.3706 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m [2026-02-02 04:20:12] [context_managers.py (41)] [INFO] [actor_train-0 0 / 1][PID 46043] actor_train/model_update_end_onload, memory allocated (GB): 1.174116611480713, memory reserved (GB): 1.193359375, memory max reserved (GB): 1.193359375, rss (GB): 5.151615142822266 memory device used (GB): 6.0244140625
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m [2026-02-02 04:20:13] [context_managers.py (41)] [INFO] [actor_train-0 0 / 1][PID 46043] actor_train/model_update_end_offload, memory allocated (GB): 0.003908634185791016, memory reserved (GB): 0.021484375, memory max reserved (GB): 1.193359375, rss (GB): 5.151615142822266 memory device used (GB): 4.8525390625
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.4413 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 155.3052 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m [2026-02-02 04:20:22] [context_managers.py (41)] [INFO] [actor_train-0 0 / 1][PID 46043] actor_train/compute_log_probs_start_offload, memory allocated (GB): 0.003908634185791016, memory reserved (GB): 0.021484375, memory max reserved (GB): 0.021484375, rss (GB): 5.152530670166016 memory device used (GB): 2.8447265625
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.6027 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.4318 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.0000 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 1.0347 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.4503 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 40.1966 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 37.5224 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 38.2992 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 38.0356 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 154.1038 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 154.1039 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.3365 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 154.8908 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.4724 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.4534 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.0000 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.9260 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.4767 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 39.2588 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 38.4527 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 38.3786 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 37.8875 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 154.0283 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 154.0284 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.5291 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 155.0344 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.4334 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.4364 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.0000 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.8701 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.4035 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 39.3516 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 37.8607 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 37.8387 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 38.1381 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 153.2368 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 153.2369 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.3812 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 154.0217 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.3937 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.4344 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.0000 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.8283 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.5040 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 39.8790 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 38.4862 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 38.4506 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 38.5257 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 155.3898 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 155.3899 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.3174 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 156.2115 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.4038 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.4390 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.0000 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.8430 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.4852 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 39.8726 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 37.8612 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 38.1723 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 39.0508 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 155.0055 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 155.0055 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.3806 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 155.8716 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.3935 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.4440 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.0000 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.8377 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.2792 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 40.4500 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 39.0057 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 38.7447 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 38.6525 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 156.9012 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 156.9012 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.4562 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 157.6369 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.6263 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.4397 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.0000 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 1.0662 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.3799 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 39.4252 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 37.6070 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 37.5130 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 37.6207 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 152.2130 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 152.2130 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.3468 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 152.9400 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.2729 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.4279 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.0000 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.7010 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m [2026-02-02 04:39:42] [base_worker.py (387)] [INFO] [actor_train-0 0 / 1][PID 46043] save checkpoint-9 to ./output/actor_train-0/checkpoint-9
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m [2026-02-02 04:39:42] [megatron_strategy.py (1212)] [INFO] [actor_train-0 0 / 1][PID 46043] save_dir: ./output/actor_train-0/checkpoint-9
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 0.1969 seconds
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m [2026-02-02 04:39:44,930] [INFO] [mcore_adapter.checkpointing]: Saving model checkpoint to ./output/actor_train-0/checkpoint-9/iter_0000001/mp_rank_00/model_optim_rng.pt
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m [2026-02-02 04:39:47] [megatron_strategy.py (1251)] [INFO] [actor_train-0 0 / 1][PID 46043] Saving optimizer state to ./output/actor_train-0/checkpoint-9/iter_0000001/mp_rank_00/optimizer.pt
+[36m(ActorWorker(actor_train-0) pid=46043, ip=172.17.0.2)[0m Elapsed time: 4.9388 seconds

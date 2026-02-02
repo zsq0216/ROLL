@@ -1,0 +1,74 @@
+[2026-02-02 04:11:55] [checkpoint_manager.py (79)] [INFO] [actor_train-0 0 / 1][PID 46043] checkpoint_config: {'type': 'file_system', 'output_dir': '/data/cpfs_0/rl_examples/models/toy-0.5B-grpo-code/20260202-041002'}
+[2026-02-02 04:11:55] [upload_utils.py (24)] [INFO] [actor_train-0 0 / 1][PID 46043] use FileSystemUploader to upload /data/cpfs_0/rl_examples/models/toy-0.5B-grpo-code/20260202-041002
+[2026-02-02 04:11:55] [megatron_strategy.py (72)] [INFO] [actor_train-0 0 / 1][PID 46043] training_args: {'output_dir': './output', 'max_steps': 80, 'num_train_epochs': 1, 'learning_rate': 1e-06, 'lr_scheduler_type': 'linear', 'weight_decay': 0, 'adam_beta1': 0.9, 'adam_beta2': 0.999, 'per_device_train_batch_size': 1, 'gradient_accumulation_steps': 1, 'seed': 42, 'data_seed': None, 'dataloader_num_workers': 0, 'fp16': False, 'bf16': True, 'tf32': None, 'warmup_ratio': 0.0, 'warmup_steps': 1, 'tensor_model_parallel_size': 1, 'pipeline_model_parallel_size': 1, 'expert_model_parallel_size': 1, 'use_distributed_optimizer': False, 'recompute_granularity': 'full', 'max_grad_norm': 1.0}
+[2026-02-02 04:11:56] [megatron_strategy.py (1022)] [INFO] [actor_train-0 0 / 1][PID 46043] megatron optimizer: <megatron.core.optimizer.optimizer.Float16OptimizerWithFloat16Params object at 0x7116b214fa90>
+[2026-02-02 04:11:56] [megatron_strategy.py (1039)] [INFO] [actor_train-0 0 / 1][PID 46043] max steps pipeline 80
+[2026-02-02 04:11:56] [megatron_strategy.py (1044)] [INFO] [actor_train-0 0 / 1][PID 46043] max steps worker train 80
+[2026-02-02 04:11:56] [megatron_strategy.py (1071)] [INFO] [actor_train-0 0 / 1][PID 46043] [DistributedDataParallel(
+  (module): McaGPTModel(
+    (embedding): LanguageModelEmbedding(
+      (word_embeddings): VocabParallelEmbedding()
+      (embedding_dropout): Dropout(p=0.0, inplace=False)
+    )
+    (rotary_pos_emb): RotaryEmbedding()
+    (decoder): TransformerBlock(
+      (layers): ModuleList(
+        (0-23): 24 x TransformerLayer(
+          (input_layernorm): IdentityOp()
+          (self_attention): SelfAttention(
+            (core_attention): TEDotProductAttention(
+              (flash_attention): FlashAttention()
+              (fused_attention): FusedAttention()
+              (unfused_attention): UnfusedDotProductAttention(
+                (scale_mask_softmax): FusedScaleMaskSoftmax()
+                (attention_dropout): Dropout(p=0.0, inplace=False)
+              )
+            )
+            (linear_proj): TERowParallelLinear(in_features=896, out_features=896, bias=False, TP=1)
+            (linear_qkv): TELayerNormColumnParallelLinear(in_features=896, out_features=1152, bias=True, TP=1)
+            (q_layernorm): IdentityOp()
+            (k_layernorm): IdentityOp()
+          )
+          (pre_cross_attn_layernorm): IdentityOp()
+          (cross_attention): IdentityOp()
+          (cross_attn_bda): IdentityFuncOp()
+          (pre_mlp_layernorm): IdentityOp()
+          (mlp): MLP(
+            (linear_fc1): TELayerNormColumnParallelLinear(in_features=896, out_features=9728, bias=False, TP=1)
+            (linear_fc2): TERowParallelLinear(in_features=4864, out_features=896, bias=False, TP=1)
+          )
+        )
+      )
+      (final_layernorm): RMSNorm()
+    )
+    (output_layer): ColumnParallelLinear(in_features=896, out_features=151936, bias=False, TP=1)
+  )
+)]
+[2026-02-02 04:11:56] [base_worker.py (62)] [INFO] [actor_train-0 0 / 1][PID 46043] actor_train-0 initialized
+[2026-02-02 04:11:58] [strategy.py (149)] [INFO] [actor_train-0 0 / 1][PID 46043] warmup setup_collective_group: model_update_actor_train_0_to_actor_infer_ rank: 0 world_size: 1
+[2026-02-02 04:11:59] [context_managers.py (41)] [INFO] [actor_train-0 0 / 1][PID 46043] actor_train/model_update_start_offload, memory allocated (GB): 1.9073486328125e-06, memory reserved (GB): 0.001953125, memory max reserved (GB): 0.001953125, rss (GB): 4.391471862792969 memory device used (GB): 2.21429443359375
+[2026-02-02 04:11:59] [context_managers.py (41)] [INFO] [actor_train-0 0 / 1][PID 46043] actor_train/model_update_start_onload, memory allocated (GB): 0.9202098846435547, memory reserved (GB): 0.939453125, memory max reserved (GB): 0.939453125, rss (GB): 4.391624450683594 memory device used (GB): 3.15179443359375
+[2026-02-02 04:14:36] [context_managers.py (41)] [INFO] [actor_train-0 0 / 1][PID 46043] actor_train/model_update_end_onload, memory allocated (GB): 1.1702098846435547, memory reserved (GB): 1.173828125, memory max reserved (GB): 1.173828125, rss (GB): 4.642524719238281 memory device used (GB): 5.7724609375
+[2026-02-02 04:14:36] [context_managers.py (41)] [INFO] [actor_train-0 0 / 1][PID 46043] actor_train/model_update_end_offload, memory allocated (GB): 1.9073486328125e-06, memory reserved (GB): 0.001953125, memory max reserved (GB): 1.173828125, rss (GB): 4.642524719238281 memory device used (GB): 4.6005859375
+[2026-02-02 04:14:46] [context_managers.py (41)] [INFO] [actor_train-0 0 / 1][PID 46043] actor_train/compute_log_probs_start_offload, memory allocated (GB): 1.9073486328125e-06, memory reserved (GB): 0.001953125, memory max reserved (GB): 0.001953125, rss (GB): 4.644355773925781 memory device used (GB): 2.7490234375
+[2026-02-02 04:14:47] [context_managers.py (41)] [INFO] [actor_train-0 0 / 1][PID 46043] actor_train/compute_log_probs_start_onload, memory allocated (GB): 0.9202098846435547, memory reserved (GB): 0.939453125, memory max reserved (GB): 0.939453125, rss (GB): 4.644355773925781 memory device used (GB): 3.6865234375
+[2026-02-02 04:14:49] [context_managers.py (41)] [INFO] [actor_train-0 0 / 1][PID 46043] actor_train/compute_log_probs_end_onload, memory allocated (GB): 0.9325089454650879, memory reserved (GB): 3.12890625, memory max reserved (GB): 3.12890625, rss (GB): 5.148506164550781 memory device used (GB): 5.9521484375
+[2026-02-02 04:14:49] [context_managers.py (41)] [INFO] [actor_train-0 0 / 1][PID 46043] actor_train/compute_log_probs_end_offload, memory allocated (GB): 0.9325089454650879, memory reserved (GB): 3.12890625, memory max reserved (GB): 3.12890625, rss (GB): 5.148658752441406 memory device used (GB): 5.9521484375
+[2026-02-02 04:14:49] [context_managers.py (41)] [INFO] [actor_train-0 0 / 1][PID 46043] actor_train/model_update_start_offload, memory allocated (GB): 0.003908634185791016, memory reserved (GB): 0.021484375, memory max reserved (GB): 0.021484375, rss (GB): 5.148811340332031 memory device used (GB): 2.8447265625
+[2026-02-02 04:14:50] [context_managers.py (41)] [INFO] [actor_train-0 0 / 1][PID 46043] actor_train/model_update_start_onload, memory allocated (GB): 0.9241166114807129, memory reserved (GB): 0.939453125, memory max reserved (GB): 0.939453125, rss (GB): 5.148811340332031 memory device used (GB): 3.7626953125
+[2026-02-02 04:17:26] [context_managers.py (41)] [INFO] [actor_train-0 0 / 1][PID 46043] actor_train/model_update_end_onload, memory allocated (GB): 1.174116611480713, memory reserved (GB): 1.193359375, memory max reserved (GB): 1.193359375, rss (GB): 5.150707244873047 memory device used (GB): 6.0244140625
+[2026-02-02 04:17:26] [context_managers.py (41)] [INFO] [actor_train-0 0 / 1][PID 46043] actor_train/model_update_end_offload, memory allocated (GB): 0.003908634185791016, memory reserved (GB): 0.021484375, memory max reserved (GB): 1.193359375, rss (GB): 5.150707244873047 memory device used (GB): 4.8525390625
+[2026-02-02 04:17:36] [context_managers.py (41)] [INFO] [actor_train-0 0 / 1][PID 46043] actor_train/compute_log_probs_start_offload, memory allocated (GB): 0.003908634185791016, memory reserved (GB): 0.021484375, memory max reserved (GB): 0.021484375, rss (GB): 5.151165008544922 memory device used (GB): 2.8447265625
+[2026-02-02 04:17:36] [context_managers.py (41)] [INFO] [actor_train-0 0 / 1][PID 46043] actor_train/compute_log_probs_start_onload, memory allocated (GB): 0.9241166114807129, memory reserved (GB): 0.939453125, memory max reserved (GB): 0.939453125, rss (GB): 5.151165008544922 memory device used (GB): 3.7626953125
+[2026-02-02 04:17:37] [context_managers.py (41)] [INFO] [actor_train-0 0 / 1][PID 46043] actor_train/compute_log_probs_end_onload, memory allocated (GB): 0.9325089454650879, memory reserved (GB): 3.12890625, memory max reserved (GB): 3.12890625, rss (GB): 5.151165008544922 memory device used (GB): 5.9521484375
+[2026-02-02 04:17:37] [context_managers.py (41)] [INFO] [actor_train-0 0 / 1][PID 46043] actor_train/compute_log_probs_end_offload, memory allocated (GB): 0.9325089454650879, memory reserved (GB): 3.12890625, memory max reserved (GB): 3.12890625, rss (GB): 5.151165008544922 memory device used (GB): 5.9521484375
+[2026-02-02 04:17:37] [context_managers.py (41)] [INFO] [actor_train-0 0 / 1][PID 46043] actor_train/model_update_start_offload, memory allocated (GB): 0.003908634185791016, memory reserved (GB): 0.021484375, memory max reserved (GB): 0.021484375, rss (GB): 5.151165008544922 memory device used (GB): 2.8447265625
+[2026-02-02 04:17:38] [context_managers.py (41)] [INFO] [actor_train-0 0 / 1][PID 46043] actor_train/model_update_start_onload, memory allocated (GB): 0.9241166114807129, memory reserved (GB): 0.939453125, memory max reserved (GB): 0.939453125, rss (GB): 5.151165008544922 memory device used (GB): 3.7626953125
+[2026-02-02 04:20:12] [context_managers.py (41)] [INFO] [actor_train-0 0 / 1][PID 46043] actor_train/model_update_end_onload, memory allocated (GB): 1.174116611480713, memory reserved (GB): 1.193359375, memory max reserved (GB): 1.193359375, rss (GB): 5.151615142822266 memory device used (GB): 6.0244140625
+[2026-02-02 04:20:13] [context_managers.py (41)] [INFO] [actor_train-0 0 / 1][PID 46043] actor_train/model_update_end_offload, memory allocated (GB): 0.003908634185791016, memory reserved (GB): 0.021484375, memory max reserved (GB): 1.193359375, rss (GB): 5.151615142822266 memory device used (GB): 4.8525390625
+[2026-02-02 04:20:22] [context_managers.py (41)] [INFO] [actor_train-0 0 / 1][PID 46043] actor_train/compute_log_probs_start_offload, memory allocated (GB): 0.003908634185791016, memory reserved (GB): 0.021484375, memory max reserved (GB): 0.021484375, rss (GB): 5.152530670166016 memory device used (GB): 2.8447265625
+[2026-02-02 04:39:42] [base_worker.py (387)] [INFO] [actor_train-0 0 / 1][PID 46043] save checkpoint-9 to ./output/actor_train-0/checkpoint-9
+[2026-02-02 04:39:42] [megatron_strategy.py (1212)] [INFO] [actor_train-0 0 / 1][PID 46043] save_dir: ./output/actor_train-0/checkpoint-9
+[2026-02-02 04:39:47] [megatron_strategy.py (1251)] [INFO] [actor_train-0 0 / 1][PID 46043] Saving optimizer state to ./output/actor_train-0/checkpoint-9/iter_0000001/mp_rank_00/optimizer.pt
+[2026-02-02 04:39:48] [upload_utils.py (29)] [INFO] [actor_train-0 0 / 1][PID 46043] ./output/actor_train-0/checkpoint-9 save to /data/cpfs_0/rl_examples/models/toy-0.5B-grpo-code/20260202-041002/checkpoint-9, wait...
+[2026-02-02 04:39:49] [upload_utils.py (31)] [INFO] [actor_train-0 0 / 1][PID 46043] ./output/actor_train-0/checkpoint-9 save to /data/cpfs_0/rl_examples/models/toy-0.5B-grpo-code/20260202-041002/checkpoint-9, done...

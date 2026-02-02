@@ -1,0 +1,61 @@
+[2026-02-02 04:11:52] [megatron_strategy.py (72)] [INFO] [reference-0 0 / 1][PID 46403] training_args: {'output_dir': '', 'max_steps': -1, 'num_train_epochs': 1.0, 'learning_rate': 5e-05, 'lr_scheduler_type': 'linear', 'weight_decay': 0.0, 'adam_beta1': 0.9, 'adam_beta2': 0.999, 'per_device_train_batch_size': 8, 'gradient_accumulation_steps': 1, 'seed': 42, 'data_seed': None, 'dataloader_num_workers': 0, 'fp16': False, 'bf16': True, 'tf32': None, 'warmup_ratio': 0.0, 'warmup_steps': 0, 'tensor_model_parallel_size': 1, 'pipeline_model_parallel_size': 1, 'expert_model_parallel_size': 1, 'max_grad_norm': 1.0}
+[2026-02-02 04:11:53] [megatron_strategy.py (109)] [INFO] [reference-0 0 / 1][PID 46403] [McaGPTModel(
+  (embedding): LanguageModelEmbedding(
+    (word_embeddings): VocabParallelEmbedding()
+    (embedding_dropout): Dropout(p=0.0, inplace=False)
+  )
+  (rotary_pos_emb): RotaryEmbedding()
+  (decoder): TransformerBlock(
+    (layers): ModuleList(
+      (0-23): 24 x TransformerLayer(
+        (input_layernorm): IdentityOp()
+        (self_attention): SelfAttention(
+          (core_attention): TEDotProductAttention(
+            (flash_attention): FlashAttention()
+            (fused_attention): FusedAttention()
+            (unfused_attention): UnfusedDotProductAttention(
+              (scale_mask_softmax): FusedScaleMaskSoftmax()
+              (attention_dropout): Dropout(p=0.0, inplace=False)
+            )
+          )
+          (linear_proj): TERowParallelLinear(in_features=896, out_features=896, bias=False, TP=1)
+          (linear_qkv): TELayerNormColumnParallelLinear(in_features=896, out_features=1152, bias=True, TP=1)
+          (q_layernorm): IdentityOp()
+          (k_layernorm): IdentityOp()
+        )
+        (pre_cross_attn_layernorm): IdentityOp()
+        (cross_attention): IdentityOp()
+        (cross_attn_bda): IdentityFuncOp()
+        (pre_mlp_layernorm): IdentityOp()
+        (mlp): MLP(
+          (linear_fc1): TELayerNormColumnParallelLinear(in_features=896, out_features=9728, bias=False, TP=1)
+          (linear_fc2): TERowParallelLinear(in_features=4864, out_features=896, bias=False, TP=1)
+        )
+      )
+    )
+    (final_layernorm): RMSNorm()
+  )
+  (output_layer): ColumnParallelLinear(in_features=896, out_features=151936, bias=False, TP=1)
+)]
+[2026-02-02 04:11:54] [base_worker.py (62)] [INFO] [reference-0 0 / 1][PID 46403] reference-0 initialized
+[2026-02-02 04:14:44] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 46403] reference/compute_log_probs_start_offload, memory allocated (GB): 9.5367431640625e-07, memory reserved (GB): 0.001953125, memory max reserved (GB): 0.001953125, rss (GB): 2.3136215209960938 memory device used (GB): 2.6533203125
+[2026-02-02 04:14:44] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 46403] reference/compute_log_probs_start_onload, memory allocated (GB): 0.9202089309692383, memory reserved (GB): 0.939453125, memory max reserved (GB): 0.939453125, rss (GB): 2.3136215209960938 memory device used (GB): 3.5908203125
+[2026-02-02 04:14:46] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 46403] reference/compute_log_probs_end_onload, memory allocated (GB): 0.9325079917907715, memory reserved (GB): 3.12890625, memory max reserved (GB): 3.12890625, rss (GB): 2.829967498779297 memory device used (GB): 5.8564453125
+[2026-02-02 04:14:46] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 46403] reference/compute_log_probs_end_offload, memory allocated (GB): 0.003999233245849609, memory reserved (GB): 0.021484375, memory max reserved (GB): 3.12890625, rss (GB): 2.829967498779297 memory device used (GB): 2.7490234375
+[2026-02-02 04:17:34] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 46403] reference/compute_log_probs_start_offload, memory allocated (GB): 0.003907680511474609, memory reserved (GB): 0.021484375, memory max reserved (GB): 0.021484375, rss (GB): 2.830730438232422 memory device used (GB): 2.8447265625
+[2026-02-02 04:17:35] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 46403] reference/compute_log_probs_start_onload, memory allocated (GB): 0.9241156578063965, memory reserved (GB): 0.939453125, memory max reserved (GB): 0.939453125, rss (GB): 2.830730438232422 memory device used (GB): 3.7626953125
+[2026-02-02 04:17:35] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 46403] reference/compute_log_probs_end_onload, memory allocated (GB): 0.9325079917907715, memory reserved (GB): 3.12890625, memory max reserved (GB): 3.12890625, rss (GB): 2.830730438232422 memory device used (GB): 5.9521484375
+[2026-02-02 04:17:35] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 46403] reference/compute_log_probs_end_offload, memory allocated (GB): 0.003999233245849609, memory reserved (GB): 0.021484375, memory max reserved (GB): 3.12890625, rss (GB): 2.830730438232422 memory device used (GB): 2.8447265625
+[2026-02-02 04:20:21] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 46403] reference/compute_log_probs_start_offload, memory allocated (GB): 0.003907680511474609, memory reserved (GB): 0.021484375, memory max reserved (GB): 0.021484375, rss (GB): 2.830883026123047 memory device used (GB): 2.8447265625
+[2026-02-02 04:20:21] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 46403] reference/compute_log_probs_start_onload, memory allocated (GB): 0.9241156578063965, memory reserved (GB): 0.939453125, memory max reserved (GB): 0.939453125, rss (GB): 2.830883026123047 memory device used (GB): 3.7626953125
+[2026-02-02 04:20:21] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 46403] reference/compute_log_probs_end_onload, memory allocated (GB): 0.9325079917907715, memory reserved (GB): 3.12890625, memory max reserved (GB): 3.12890625, rss (GB): 2.830883026123047 memory device used (GB): 5.9521484375
+[2026-02-02 04:20:22] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 46403] reference/compute_log_probs_end_offload, memory allocated (GB): 0.003999233245849609, memory reserved (GB): 0.021484375, memory max reserved (GB): 3.12890625, rss (GB): 2.830883026123047 memory device used (GB): 2.8447265625
+[2026-02-02 04:23:06] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 46403] reference/compute_log_probs_start_offload, memory allocated (GB): 0.003907680511474609, memory reserved (GB): 0.021484375, memory max reserved (GB): 0.021484375, rss (GB): 2.831035614013672 memory device used (GB): 2.8447265625
+[2026-02-02 04:23:07] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 46403] reference/compute_log_probs_start_onload, memory allocated (GB): 0.9241156578063965, memory reserved (GB): 0.939453125, memory max reserved (GB): 0.939453125, rss (GB): 2.831035614013672 memory device used (GB): 3.7626953125
+[2026-02-02 04:23:07] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 46403] reference/compute_log_probs_end_onload, memory allocated (GB): 0.9325079917907715, memory reserved (GB): 3.12890625, memory max reserved (GB): 3.12890625, rss (GB): 2.831035614013672 memory device used (GB): 5.9521484375
+[2026-02-02 04:23:07] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 46403] reference/compute_log_probs_end_offload, memory allocated (GB): 0.003999233245849609, memory reserved (GB): 0.021484375, memory max reserved (GB): 3.12890625, rss (GB): 2.831035614013672 memory device used (GB): 2.8447265625
+[2026-02-02 04:25:52] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 46403] reference/compute_log_probs_start_offload, memory allocated (GB): 0.003907680511474609, memory reserved (GB): 0.021484375, memory max reserved (GB): 0.021484375, rss (GB): 2.831340789794922 memory device used (GB): 2.8447265625
+[2026-02-02 04:25:52] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 46403] reference/compute_log_probs_start_onload, memory allocated (GB): 0.9241156578063965, memory reserved (GB): 0.939453125, memory max reserved (GB): 0.939453125, rss (GB): 2.831340789794922 memory device used (GB): 3.7626953125
+[2026-02-02 04:25:53] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 46403] reference/compute_log_probs_end_onload, memory allocated (GB): 0.9325079917907715, memory reserved (GB): 3.12890625, memory max reserved (GB): 3.12890625, rss (GB): 2.831340789794922 memory device used (GB): 5.9521484375
+[2026-02-02 04:25:53] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 46403] reference/compute_log_probs_end_offload, memory allocated (GB): 0.003999233245849609, memory reserved (GB): 0.021484375, memory max reserved (GB): 3.12890625, rss (GB): 2.831340789794922 memory device used (GB): 2.8447265625
+[2026-02-02 04:28:37] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 46403] reference/compute_log_probs_start_offload, memory allocated (GB): 0.003907680511474609, memory reserved (GB): 0.021484375, memory max reserved (GB): 0.021484375, rss (GB): 2.831493377685547 memory device used (GB): 2.8447265625

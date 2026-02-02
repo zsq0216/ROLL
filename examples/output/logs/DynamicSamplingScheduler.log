@@ -1,0 +1,34 @@
+[36m(DynamicSamplingScheduler pid=46684, ip=172.17.0.2)[0m [2026-02-02 04:11:32] [generate_scheduler.py (427)] [INFO] [DRIVER 0 / 1][PID 46684] training generate scheduler sequence_length is: 1536
+[36m(DynamicSamplingScheduler pid=46684, ip=172.17.0.2)[0m [2026-02-02 04:11:33] [generate_scheduler.py (455)] [INFO] [DRIVER 0 / 1][PID 46684] use_additional_prompts is False, disable query and response filtering.
+[36m(DynamicSamplingScheduler pid=46684, ip=172.17.0.2)[0m [2026-02-02 04:14:36] [generate_scheduler.py (741)] [INFO] [DRIVER 0 / 1][PID 46684] code_sandbox dataset epoch: 0
+[36m(DynamicSamplingScheduler pid=46684, ip=172.17.0.2)[0m code_sandbox generate progress(prompt):   0%|          | 0/1 [00:00<?, ?it/s]
+[36m(DynamicSamplingScheduler pid=46684, ip=172.17.0.2)[0m 
+[36m(DynamicSamplingScheduler pid=46684, ip=172.17.0.2)[0m code_sandbox generate progress(prompt):   0%|          | 0/1 [00:00<?, ?it/s][Acode_sandbox generate progress(prompt):   0%|          | 0/1 [00:07<?, ?it/s]
+[36m(DynamicSamplingScheduler pid=46684, ip=172.17.0.2)[0m code_sandbox generate progress(prompt):   0%|          | 0/1 [00:00<?, ?it/s]code_sandbox generate progress(prompt):   0%|          | 0/1 [02:42<?, ?it/s]
+[36m(DynamicSamplingScheduler pid=46684, ip=172.17.0.2)[0m 
+[36m(DynamicSamplingScheduler pid=46684, ip=172.17.0.2)[0m code_sandbox generate progress(prompt):   0%|          | 0/1 [00:00<?, ?it/s][Acode_sandbox generate progress(prompt):   0%|          | 0/1 [00:07<?, ?it/s]
+[36m(DynamicSamplingScheduler pid=46684, ip=172.17.0.2)[0m code_sandbox generate progress(prompt):   0%|          | 0/1 [00:00<?, ?it/s]code_sandbox generate progress(prompt):   0%|          | 0/1 [02:38<?, ?it/s]
+[36m(DynamicSamplingScheduler pid=46684, ip=172.17.0.2)[0m 
+[36m(DynamicSamplingScheduler pid=46684, ip=172.17.0.2)[0m code_sandbox generate progress(prompt):   0%|          | 0/1 [00:00<?, ?it/s][Acode_sandbox generate progress(prompt):   0%|          | 0/1 [00:07<?, ?it/s]
+[36m(DynamicSamplingScheduler pid=46684, ip=172.17.0.2)[0m code_sandbox generate progress(prompt):   0%|          | 0/1 [00:00<?, ?it/s]code_sandbox generate progress(prompt):   0%|          | 0/1 [02:38<?, ?it/s]
+[36m(DynamicSamplingScheduler pid=46684, ip=172.17.0.2)[0m 
+[36m(DynamicSamplingScheduler pid=46684, ip=172.17.0.2)[0m code_sandbox generate progress(prompt):   0%|          | 0/1 [00:00<?, ?it/s][Acode_sandbox generate progress(prompt):   0%|          | 0/1 [00:07<?, ?it/s]
+[36m(DynamicSamplingScheduler pid=46684, ip=172.17.0.2)[0m code_sandbox generate progress(prompt):   0%|          | 0/1 [00:00<?, ?it/s]code_sandbox generate progress(prompt):   0%|          | 0/1 [02:38<?, ?it/s]
+[36m(DynamicSamplingScheduler pid=46684, ip=172.17.0.2)[0m 
+[36m(DynamicSamplingScheduler pid=46684, ip=172.17.0.2)[0m code_sandbox generate progress(prompt):   0%|          | 0/1 [00:00<?, ?it/s][Acode_sandbox generate progress(prompt):   0%|          | 0/1 [00:07<?, ?it/s]
+[36m(DynamicSamplingScheduler pid=46684, ip=172.17.0.2)[0m code_sandbox generate progress(prompt):   0%|          | 0/1 [00:00<?, ?it/s]code_sandbox generate progress(prompt):   0%|          | 0/1 [02:37<?, ?it/s]
+[36m(DynamicSamplingScheduler pid=46684, ip=172.17.0.2)[0m 
+[36m(DynamicSamplingScheduler pid=46684, ip=172.17.0.2)[0m code_sandbox generate progress(prompt):   0%|          | 0/1 [00:00<?, ?it/s][Acode_sandbox generate progress(prompt):   0%|          | 0/1 [00:07<?, ?it/s]
+[36m(DynamicSamplingScheduler pid=46684, ip=172.17.0.2)[0m code_sandbox generate progress(prompt):   0%|          | 0/1 [00:00<?, ?it/s]code_sandbox generate progress(prompt):   0%|          | 0/1 [02:39<?, ?it/s]
+[36m(DynamicSamplingScheduler pid=46684, ip=172.17.0.2)[0m 
+[36m(DynamicSamplingScheduler pid=46684, ip=172.17.0.2)[0m code_sandbox generate progress(prompt):   0%|          | 0/1 [00:00<?, ?it/s][Acode_sandbox generate progress(prompt):   0%|          | 0/1 [00:07<?, ?it/s]
+[36m(DynamicSamplingScheduler pid=46684, ip=172.17.0.2)[0m code_sandbox generate progress(prompt):   0%|          | 0/1 [00:00<?, ?it/s]code_sandbox generate progress(prompt):   0%|          | 0/1 [02:39<?, ?it/s]
+[36m(DynamicSamplingScheduler pid=46684, ip=172.17.0.2)[0m 
+[36m(DynamicSamplingScheduler pid=46684, ip=172.17.0.2)[0m code_sandbox generate progress(prompt):   0%|          | 0/1 [00:00<?, ?it/s][Acode_sandbox generate progress(prompt):   0%|          | 0/1 [00:07<?, ?it/s]
+[36m(DynamicSamplingScheduler pid=46684, ip=172.17.0.2)[0m [2026-02-02 04:36:50] [generate_scheduler.py (751)] [INFO] [DRIVER 0 / 1][PID 46684] code_sandbox dataset epoch: 1
+[36m(DynamicSamplingScheduler pid=46684, ip=172.17.0.2)[0m code_sandbox generate progress(prompt):   0%|          | 0/1 [00:00<?, ?it/s]code_sandbox generate progress(prompt):   0%|          | 0/1 [02:40<?, ?it/s]
+[36m(DynamicSamplingScheduler pid=46684, ip=172.17.0.2)[0m 
+[36m(DynamicSamplingScheduler pid=46684, ip=172.17.0.2)[0m code_sandbox generate progress(prompt):   0%|          | 0/1 [00:00<?, ?it/s][Acode_sandbox generate progress(prompt):   0%|          | 0/1 [00:07<?, ?it/s]
+[36m(DynamicSamplingScheduler pid=46684, ip=172.17.0.2)[0m code_sandbox generate progress(prompt):   0%|          | 0/1 [00:00<?, ?it/s]code_sandbox generate progress(prompt):   0%|          | 0/1 [02:36<?, ?it/s]
+[36m(DynamicSamplingScheduler pid=46684, ip=172.17.0.2)[0m 
+[36m(DynamicSamplingScheduler pid=46684, ip=172.17.0.2)[0m code_sandbox generate progress(prompt):   0%|          | 0/1 [00:00<?, ?it/s][Acode_sandbox generate progress(prompt):   0%|          | 0/1 [00:06<?, ?it/s]
