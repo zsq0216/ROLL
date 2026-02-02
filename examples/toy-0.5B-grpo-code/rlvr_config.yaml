@@ -59,7 +59,7 @@ norm_std_type: ~
 
 # data mask
 max_len_mask: true
-difficulty_mask: true
+difficulty_mask: false
 difficulty_low_threshold: 0.1
 difficulty_high_threshold: 0.95
 error_max_len_clip: false
