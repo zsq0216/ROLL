@@ -1,118 +1,118 @@
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m [2026-02-02 04:11:52] [megatron_strategy.py (72)] [INFO] [reference-0 0 / 1][PID 46403] training_args: {'output_dir': '', 'max_steps': -1, 'num_train_epochs': 1.0, 'learning_rate': 5e-05, 'lr_scheduler_type': 'linear', 'weight_decay': 0.0, 'adam_beta1': 0.9, 'adam_beta2': 0.999, 'per_device_train_batch_size': 8, 'gradient_accumulation_steps': 1, 'seed': 42, 'data_seed': None, 'dataloader_num_workers': 0, 'fp16': False, 'bf16': True, 'tf32': None, 'warmup_ratio': 0.0, 'warmup_steps': 0, 'tensor_model_parallel_size': 1, 'pipeline_model_parallel_size': 1, 'expert_model_parallel_size': 1, 'max_grad_norm': 1.0}
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m [2026-02-02 04:11:53,053] [INFO] [mcore_adapter.models.auto.modeling_auto]: Did not find /root/.cache/modelscope/hub/models/Qwen/Qwen2___5-Coder-0___5B/mca_config.json, loading HuggingFace config from /root/.cache/modelscope/hub/models/Qwen/Qwen2___5-Coder-0___5B
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m [2026-02-02 04:11:53,053] [INFO] [mcore_adapter.models.model_config]: Did not find /root/.cache/modelscope/hub/models/Qwen/Qwen2___5-Coder-0___5B/mca_config.json, loading HuggingFace config from /root/.cache/modelscope/hub/models/Qwen/Qwen2___5-Coder-0___5B
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m [2026-02-02 04:11:53,055] [INFO] [mcore_adapter.initialize]: Initializing mpu on device cuda:0
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m [2026-02-02 04:11:53,060] [INFO] [mcore_adapter.initialize]: initialized tensor model parallel with size 1
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m [2026-02-02 04:11:53,060] [INFO] [mcore_adapter.initialize]: initialized pipeline model parallel with size 1
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m [2026-02-02 04:11:53,062] [WARNING] [mcore_adapter.models.model_config]: Non-interleaved pipeline parallelism does not support overlapping p2p communication!
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m [2026-02-02 04:11:53,269] [INFO] [mcore_adapter.models.model_factory]: number of parameters on (tensor, pipeline, expert) model parallel rank (0, 0, 0): 494032768
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m [2026-02-02 04:11:53,771] [INFO] [mcore_adapter.models.model_factory]: End loading, cost: 0.718s
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m [2026-02-02 04:11:53] [megatron_strategy.py (109)] [INFO] [reference-0 0 / 1][PID 46403] [McaGPTModel(
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m   (embedding): LanguageModelEmbedding(
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m     (word_embeddings): VocabParallelEmbedding()
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m     (embedding_dropout): Dropout(p=0.0, inplace=False)
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m   )
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m   (rotary_pos_emb): RotaryEmbedding()
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m   (decoder): TransformerBlock(
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m     (layers): ModuleList(
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m       (0-23): 24 x TransformerLayer(
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m         (input_layernorm): IdentityOp()
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m         (self_attention): SelfAttention(
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m           (core_attention): TEDotProductAttention(
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m             (flash_attention): FlashAttention()
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m             (fused_attention): FusedAttention()
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m             (unfused_attention): UnfusedDotProductAttention(
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m               (scale_mask_softmax): FusedScaleMaskSoftmax()
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m               (attention_dropout): Dropout(p=0.0, inplace=False)
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m             )
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m           )
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m           (linear_proj): TERowParallelLinear(in_features=896, out_features=896, bias=False, TP=1)
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m           (linear_qkv): TELayerNormColumnParallelLinear(in_features=896, out_features=1152, bias=True, TP=1)
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m           (q_layernorm): IdentityOp()
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m           (k_layernorm): IdentityOp()
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m         )
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m         (pre_cross_attn_layernorm): IdentityOp()
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m         (cross_attention): IdentityOp()
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m         (cross_attn_bda): IdentityFuncOp()
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m         (pre_mlp_layernorm): IdentityOp()
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m         (mlp): MLP(
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m           (linear_fc1): TELayerNormColumnParallelLinear(in_features=896, out_features=9728, bias=False, TP=1)
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m           (linear_fc2): TERowParallelLinear(in_features=4864, out_features=896, bias=False, TP=1)
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m         )
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m       )
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m     )
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m     (final_layernorm): RMSNorm()
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m   )
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m   (output_layer): ColumnParallelLinear(in_features=896, out_features=151936, bias=False, TP=1)
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m )]
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m [rank0]:[W202 04:11:53.758964090 ProcessGroupNCCL.cpp:4561] [PG ID 0 PG GUID 0 Rank 0]  using GPU 0 to perform barrier as devices used by this process are currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect. Specify device_ids in barrier() to force use of a particular device, or call init_process_group() with a device_id.
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m [2026-02-02 04:11:54] [base_worker.py (62)] [INFO] [reference-0 0 / 1][PID 46403] reference-0 initialized
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m [2026-02-02 04:14:44] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 46403] reference/compute_log_probs_start_offload, memory allocated (GB): 9.5367431640625e-07, memory reserved (GB): 0.001953125, memory max reserved (GB): 0.001953125, rss (GB): 2.3136215209960938 memory device used (GB): 2.6533203125
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m /usr/local/lib/python3.10/dist-packages/torch/cuda/memory.py:391: FutureWarning: torch.cuda.reset_max_memory_allocated now calls torch.cuda.reset_peak_memory_stats, which resets /all/ peak memory stats.
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m   warnings.warn(
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m /usr/local/lib/python3.10/dist-packages/torch/cuda/memory.py:417: FutureWarning: torch.cuda.reset_max_memory_cached now calls torch.cuda.reset_peak_memory_stats, which resets /all/ peak memory stats.
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m   warnings.warn(
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m [2026-02-02 04:14:44] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 46403] reference/compute_log_probs_start_onload, memory allocated (GB): 0.9202089309692383, memory reserved (GB): 0.939453125, memory max reserved (GB): 0.939453125, rss (GB): 2.3136215209960938 memory device used (GB): 3.5908203125
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m Elapsed time: 0.1926 seconds
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m Elapsed time: 1.5603 seconds
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m [2026-02-02 04:14:46] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 46403] reference/compute_log_probs_end_onload, memory allocated (GB): 0.9325079917907715, memory reserved (GB): 3.12890625, memory max reserved (GB): 3.12890625, rss (GB): 2.829967498779297 memory device used (GB): 5.8564453125
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m [2026-02-02 04:14:46] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 46403] reference/compute_log_probs_end_offload, memory allocated (GB): 0.003999233245849609, memory reserved (GB): 0.021484375, memory max reserved (GB): 3.12890625, rss (GB): 2.829967498779297 memory device used (GB): 2.7490234375
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m Elapsed time: 0.1704 seconds
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m Elapsed time: 1.9234 seconds
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m [2026-02-02 04:17:34] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 46403] reference/compute_log_probs_start_offload, memory allocated (GB): 0.003907680511474609, memory reserved (GB): 0.021484375, memory max reserved (GB): 0.021484375, rss (GB): 2.830730438232422 memory device used (GB): 2.8447265625
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m /usr/local/lib/python3.10/dist-packages/torch/cuda/memory.py:391: FutureWarning: torch.cuda.reset_max_memory_allocated now calls torch.cuda.reset_peak_memory_stats, which resets /all/ peak memory stats.
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m   warnings.warn(
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m /usr/local/lib/python3.10/dist-packages/torch/cuda/memory.py:417: FutureWarning: torch.cuda.reset_max_memory_cached now calls torch.cuda.reset_peak_memory_stats, which resets /all/ peak memory stats.
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m   warnings.warn(
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m [2026-02-02 04:17:35] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 46403] reference/compute_log_probs_start_onload, memory allocated (GB): 0.9241156578063965, memory reserved (GB): 0.939453125, memory max reserved (GB): 0.939453125, rss (GB): 2.830730438232422 memory device used (GB): 3.7626953125
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m Elapsed time: 0.4630 seconds
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m Elapsed time: 0.4497 seconds
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m [2026-02-02 04:17:35] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 46403] reference/compute_log_probs_end_onload, memory allocated (GB): 0.9325079917907715, memory reserved (GB): 3.12890625, memory max reserved (GB): 3.12890625, rss (GB): 2.830730438232422 memory device used (GB): 5.9521484375
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m [2026-02-02 04:17:35] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 46403] reference/compute_log_probs_end_offload, memory allocated (GB): 0.003999233245849609, memory reserved (GB): 0.021484375, memory max reserved (GB): 3.12890625, rss (GB): 2.830730438232422 memory device used (GB): 2.8447265625
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m Elapsed time: 0.2519 seconds
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m Elapsed time: 1.1648 seconds
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m [2026-02-02 04:20:21] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 46403] reference/compute_log_probs_start_offload, memory allocated (GB): 0.003907680511474609, memory reserved (GB): 0.021484375, memory max reserved (GB): 0.021484375, rss (GB): 2.830883026123047 memory device used (GB): 2.8447265625
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m [2026-02-02 04:20:21] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 46403] reference/compute_log_probs_start_onload, memory allocated (GB): 0.9241156578063965, memory reserved (GB): 0.939453125, memory max reserved (GB): 0.939453125, rss (GB): 2.830883026123047 memory device used (GB): 3.7626953125
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m Elapsed time: 0.2811 seconds
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m Elapsed time: 0.4484 seconds
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m [2026-02-02 04:20:21] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 46403] reference/compute_log_probs_end_onload, memory allocated (GB): 0.9325079917907715, memory reserved (GB): 3.12890625, memory max reserved (GB): 3.12890625, rss (GB): 2.830883026123047 memory device used (GB): 5.9521484375
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m [2026-02-02 04:20:22] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 46403] reference/compute_log_probs_end_offload, memory allocated (GB): 0.003999233245849609, memory reserved (GB): 0.021484375, memory max reserved (GB): 3.12890625, rss (GB): 2.830883026123047 memory device used (GB): 2.8447265625
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m Elapsed time: 0.2601 seconds
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m Elapsed time: 0.9897 seconds
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m [2026-02-02 04:23:06] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 46403] reference/compute_log_probs_start_offload, memory allocated (GB): 0.003907680511474609, memory reserved (GB): 0.021484375, memory max reserved (GB): 0.021484375, rss (GB): 2.831035614013672 memory device used (GB): 2.8447265625
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m [2026-02-02 04:23:07] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 46403] reference/compute_log_probs_start_onload, memory allocated (GB): 0.9241156578063965, memory reserved (GB): 0.939453125, memory max reserved (GB): 0.939453125, rss (GB): 2.831035614013672 memory device used (GB): 3.7626953125
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m Elapsed time: 0.1955 seconds
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m Elapsed time: 0.4282 seconds
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m [2026-02-02 04:23:07] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 46403] reference/compute_log_probs_end_onload, memory allocated (GB): 0.9325079917907715, memory reserved (GB): 3.12890625, memory max reserved (GB): 3.12890625, rss (GB): 2.831035614013672 memory device used (GB): 5.9521484375
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m [2026-02-02 04:23:07] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 46403] reference/compute_log_probs_end_offload, memory allocated (GB): 0.003999233245849609, memory reserved (GB): 0.021484375, memory max reserved (GB): 3.12890625, rss (GB): 2.831035614013672 memory device used (GB): 2.8447265625
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m Elapsed time: 0.1935 seconds
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m Elapsed time: 0.8173 seconds
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m [2026-02-02 04:25:52] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 46403] reference/compute_log_probs_start_offload, memory allocated (GB): 0.003907680511474609, memory reserved (GB): 0.021484375, memory max reserved (GB): 0.021484375, rss (GB): 2.831340789794922 memory device used (GB): 2.8447265625
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m [2026-02-02 04:25:52] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 46403] reference/compute_log_probs_start_onload, memory allocated (GB): 0.9241156578063965, memory reserved (GB): 0.939453125, memory max reserved (GB): 0.939453125, rss (GB): 2.831340789794922 memory device used (GB): 3.7626953125
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m Elapsed time: 0.3857 seconds
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m Elapsed time: 0.4303 seconds
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m [2026-02-02 04:25:53] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 46403] reference/compute_log_probs_end_onload, memory allocated (GB): 0.9325079917907715, memory reserved (GB): 3.12890625, memory max reserved (GB): 3.12890625, rss (GB): 2.831340789794922 memory device used (GB): 5.9521484375
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m [2026-02-02 04:25:53] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 46403] reference/compute_log_probs_end_offload, memory allocated (GB): 0.003999233245849609, memory reserved (GB): 0.021484375, memory max reserved (GB): 3.12890625, rss (GB): 2.831340789794922 memory device used (GB): 2.8447265625
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m Elapsed time: 0.1702 seconds
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m Elapsed time: 0.9864 seconds
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m [2026-02-02 04:28:37] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 46403] reference/compute_log_probs_start_offload, memory allocated (GB): 0.003907680511474609, memory reserved (GB): 0.021484375, memory max reserved (GB): 0.021484375, rss (GB): 2.831493377685547 memory device used (GB): 2.8447265625
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m Elapsed time: 0.1556 seconds
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m Elapsed time: 0.4453 seconds
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m Elapsed time: 0.1726 seconds
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m Elapsed time: 0.7738 seconds
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m Elapsed time: 0.4562 seconds
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m Elapsed time: 0.4547 seconds
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m Elapsed time: 0.1706 seconds
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m Elapsed time: 1.0816 seconds
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m Elapsed time: 0.0580 seconds
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m Elapsed time: 0.4275 seconds
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m Elapsed time: 0.1836 seconds
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m Elapsed time: 0.6693 seconds
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m Elapsed time: 0.1882 seconds
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m Elapsed time: 0.4460 seconds
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m Elapsed time: 0.1561 seconds
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m Elapsed time: 0.7905 seconds
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m Elapsed time: 0.1759 seconds
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m Elapsed time: 0.4264 seconds
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m Elapsed time: 0.1165 seconds
-[36m(ActorWorker(reference-0) pid=46403, ip=172.17.0.2)[0m Elapsed time: 0.7191 seconds
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m [2026-02-02 05:29:34] [megatron_strategy.py (72)] [INFO] [reference-0 0 / 1][PID 52295] training_args: {'output_dir': '', 'max_steps': -1, 'num_train_epochs': 1.0, 'learning_rate': 5e-05, 'lr_scheduler_type': 'linear', 'weight_decay': 0.0, 'adam_beta1': 0.9, 'adam_beta2': 0.999, 'per_device_train_batch_size': 8, 'gradient_accumulation_steps': 1, 'seed': 42, 'data_seed': None, 'dataloader_num_workers': 0, 'fp16': False, 'bf16': True, 'tf32': None, 'warmup_ratio': 0.0, 'warmup_steps': 0, 'tensor_model_parallel_size': 1, 'pipeline_model_parallel_size': 1, 'expert_model_parallel_size': 1, 'max_grad_norm': 1.0}
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m [2026-02-02 05:29:34,496] [INFO] [mcore_adapter.models.auto.modeling_auto]: Did not find /root/.cache/modelscope/hub/models/Qwen/Qwen2___5-Coder-0___5B/mca_config.json, loading HuggingFace config from /root/.cache/modelscope/hub/models/Qwen/Qwen2___5-Coder-0___5B
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m [2026-02-02 05:29:34,497] [INFO] [mcore_adapter.models.model_config]: Did not find /root/.cache/modelscope/hub/models/Qwen/Qwen2___5-Coder-0___5B/mca_config.json, loading HuggingFace config from /root/.cache/modelscope/hub/models/Qwen/Qwen2___5-Coder-0___5B
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m [2026-02-02 05:29:34,498] [INFO] [mcore_adapter.initialize]: Initializing mpu on device cuda:0
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m [2026-02-02 05:29:34,504] [INFO] [mcore_adapter.initialize]: initialized tensor model parallel with size 1
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m [2026-02-02 05:29:34,504] [INFO] [mcore_adapter.initialize]: initialized pipeline model parallel with size 1
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m [2026-02-02 05:29:34,506] [WARNING] [mcore_adapter.models.model_config]: Non-interleaved pipeline parallelism does not support overlapping p2p communication!
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m [2026-02-02 05:29:34,720] [INFO] [mcore_adapter.models.model_factory]: number of parameters on (tensor, pipeline, expert) model parallel rank (0, 0, 0): 494032768
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m [2026-02-02 05:29:35,365] [INFO] [mcore_adapter.models.model_factory]: End loading, cost: 0.868s
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m [rank0]:[W202 05:29:35.354317041 ProcessGroupNCCL.cpp:4561] [PG ID 0 PG GUID 0 Rank 0]  using GPU 0 to perform barrier as devices used by this process are currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect. Specify device_ids in barrier() to force use of a particular device, or call init_process_group() with a device_id.
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m [2026-02-02 05:29:35] [megatron_strategy.py (109)] [INFO] [reference-0 0 / 1][PID 52295] [McaGPTModel(
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m   (embedding): LanguageModelEmbedding(
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m     (word_embeddings): VocabParallelEmbedding()
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m     (embedding_dropout): Dropout(p=0.0, inplace=False)
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m   )
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m   (rotary_pos_emb): RotaryEmbedding()
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m   (decoder): TransformerBlock(
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m     (layers): ModuleList(
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m       (0-23): 24 x TransformerLayer(
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m         (input_layernorm): IdentityOp()
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m         (self_attention): SelfAttention(
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m           (core_attention): TEDotProductAttention(
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m             (flash_attention): FlashAttention()
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m             (fused_attention): FusedAttention()
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m             (unfused_attention): UnfusedDotProductAttention(
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m               (scale_mask_softmax): FusedScaleMaskSoftmax()
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m               (attention_dropout): Dropout(p=0.0, inplace=False)
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m             )
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m           )
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m           (linear_proj): TERowParallelLinear(in_features=896, out_features=896, bias=False, TP=1)
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m           (linear_qkv): TELayerNormColumnParallelLinear(in_features=896, out_features=1152, bias=True, TP=1)
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m           (q_layernorm): IdentityOp()
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m           (k_layernorm): IdentityOp()
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m         )
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m         (pre_cross_attn_layernorm): IdentityOp()
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m         (cross_attention): IdentityOp()
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m         (cross_attn_bda): IdentityFuncOp()
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m         (pre_mlp_layernorm): IdentityOp()
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m         (mlp): MLP(
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m           (linear_fc1): TELayerNormColumnParallelLinear(in_features=896, out_features=9728, bias=False, TP=1)
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m           (linear_fc2): TERowParallelLinear(in_features=4864, out_features=896, bias=False, TP=1)
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m         )
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m       )
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m     )
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m     (final_layernorm): RMSNorm()
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m   )
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m   (output_layer): ColumnParallelLinear(in_features=896, out_features=151936, bias=False, TP=1)
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m )]
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m [2026-02-02 05:29:35] [base_worker.py (62)] [INFO] [reference-0 0 / 1][PID 52295] reference-0 initialized
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m /usr/local/lib/python3.10/dist-packages/torch/cuda/memory.py:391: FutureWarning: torch.cuda.reset_max_memory_allocated now calls torch.cuda.reset_peak_memory_stats, which resets /all/ peak memory stats.
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m   warnings.warn(
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m /usr/local/lib/python3.10/dist-packages/torch/cuda/memory.py:417: FutureWarning: torch.cuda.reset_max_memory_cached now calls torch.cuda.reset_peak_memory_stats, which resets /all/ peak memory stats.
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m   warnings.warn(
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m [2026-02-02 05:32:18] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 52295] reference/compute_log_probs_start_offload, memory allocated (GB): 9.5367431640625e-07, memory reserved (GB): 0.001953125, memory max reserved (GB): 0.001953125, rss (GB): 2.3139724731445312 memory device used (GB): 2.6533203125
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m [2026-02-02 05:32:18] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 52295] reference/compute_log_probs_start_onload, memory allocated (GB): 0.9202089309692383, memory reserved (GB): 0.939453125, memory max reserved (GB): 0.939453125, rss (GB): 2.3139724731445312 memory device used (GB): 3.5908203125
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m Elapsed time: 0.2738 seconds
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m Elapsed time: 1.6117 seconds
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m [2026-02-02 05:32:20] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 52295] reference/compute_log_probs_end_onload, memory allocated (GB): 0.9325079917907715, memory reserved (GB): 3.12890625, memory max reserved (GB): 3.12890625, rss (GB): 2.8304824829101562 memory device used (GB): 5.8564453125
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m [2026-02-02 05:32:20] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 52295] reference/compute_log_probs_end_offload, memory allocated (GB): 0.003999233245849609, memory reserved (GB): 0.021484375, memory max reserved (GB): 3.12890625, rss (GB): 2.8306350708007812 memory device used (GB): 2.7490234375
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m Elapsed time: 0.2179 seconds
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m Elapsed time: 2.1035 seconds
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m /usr/local/lib/python3.10/dist-packages/torch/cuda/memory.py:391: FutureWarning: torch.cuda.reset_max_memory_allocated now calls torch.cuda.reset_peak_memory_stats, which resets /all/ peak memory stats.
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m   warnings.warn(
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m /usr/local/lib/python3.10/dist-packages/torch/cuda/memory.py:417: FutureWarning: torch.cuda.reset_max_memory_cached now calls torch.cuda.reset_peak_memory_stats, which resets /all/ peak memory stats.
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m   warnings.warn(
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m [2026-02-02 05:35:17] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 52295] reference/compute_log_probs_start_offload, memory allocated (GB): 0.003907680511474609, memory reserved (GB): 0.021484375, memory max reserved (GB): 0.021484375, rss (GB): 2.8309402465820312 memory device used (GB): 2.9873046875
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m [2026-02-02 05:35:17] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 52295] reference/compute_log_probs_start_onload, memory allocated (GB): 0.9241156578063965, memory reserved (GB): 0.939453125, memory max reserved (GB): 0.939453125, rss (GB): 2.8309402465820312 memory device used (GB): 3.9052734375
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m Elapsed time: 0.1621 seconds
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m Elapsed time: 0.4716 seconds
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m [2026-02-02 05:35:18] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 52295] reference/compute_log_probs_end_onload, memory allocated (GB): 0.9325079917907715, memory reserved (GB): 3.12890625, memory max reserved (GB): 3.12890625, rss (GB): 2.8309402465820312 memory device used (GB): 6.0947265625
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m [2026-02-02 05:35:18] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 52295] reference/compute_log_probs_end_offload, memory allocated (GB): 0.003999233245849609, memory reserved (GB): 0.021484375, memory max reserved (GB): 3.12890625, rss (GB): 2.8309402465820312 memory device used (GB): 2.9873046875
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m Elapsed time: 0.1604 seconds
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m Elapsed time: 0.7943 seconds
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m [2026-02-02 05:38:11] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 52295] reference/compute_log_probs_start_offload, memory allocated (GB): 0.003907680511474609, memory reserved (GB): 0.021484375, memory max reserved (GB): 0.021484375, rss (GB): 2.8309402465820312 memory device used (GB): 2.9873046875
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m [2026-02-02 05:38:12] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 52295] reference/compute_log_probs_start_onload, memory allocated (GB): 0.9241156578063965, memory reserved (GB): 0.939453125, memory max reserved (GB): 0.939453125, rss (GB): 2.8309402465820312 memory device used (GB): 3.9052734375
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m Elapsed time: 0.1587 seconds
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m Elapsed time: 0.4428 seconds
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m [2026-02-02 05:38:12] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 52295] reference/compute_log_probs_end_onload, memory allocated (GB): 0.9325079917907715, memory reserved (GB): 3.12890625, memory max reserved (GB): 3.12890625, rss (GB): 2.8309402465820312 memory device used (GB): 6.0947265625
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m [2026-02-02 05:38:12] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 52295] reference/compute_log_probs_end_offload, memory allocated (GB): 0.003999233245849609, memory reserved (GB): 0.021484375, memory max reserved (GB): 3.12890625, rss (GB): 2.8309402465820312 memory device used (GB): 2.9873046875
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m Elapsed time: 0.1345 seconds
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m Elapsed time: 0.7362 seconds
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m [2026-02-02 05:41:05] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 52295] reference/compute_log_probs_start_offload, memory allocated (GB): 0.003907680511474609, memory reserved (GB): 0.021484375, memory max reserved (GB): 0.021484375, rss (GB): 2.8310928344726562 memory device used (GB): 2.9873046875
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m [2026-02-02 05:41:06] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 52295] reference/compute_log_probs_start_onload, memory allocated (GB): 0.9241156578063965, memory reserved (GB): 0.939453125, memory max reserved (GB): 0.939453125, rss (GB): 2.8310928344726562 memory device used (GB): 3.9052734375
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m Elapsed time: 0.1080 seconds
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m Elapsed time: 0.4512 seconds
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m [2026-02-02 05:41:06] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 52295] reference/compute_log_probs_end_onload, memory allocated (GB): 0.9325079917907715, memory reserved (GB): 3.12890625, memory max reserved (GB): 3.12890625, rss (GB): 2.8310928344726562 memory device used (GB): 6.0947265625
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m [2026-02-02 05:41:06] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 52295] reference/compute_log_probs_end_offload, memory allocated (GB): 0.003999233245849609, memory reserved (GB): 0.021484375, memory max reserved (GB): 3.12890625, rss (GB): 2.8310928344726562 memory device used (GB): 2.9873046875
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m Elapsed time: 0.1666 seconds
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m Elapsed time: 0.7259 seconds
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m [2026-02-02 05:44:00] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 52295] reference/compute_log_probs_start_offload, memory allocated (GB): 0.003907680511474609, memory reserved (GB): 0.021484375, memory max reserved (GB): 0.021484375, rss (GB): 2.8313980102539062 memory device used (GB): 2.9873046875
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m [2026-02-02 05:44:00] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 52295] reference/compute_log_probs_start_onload, memory allocated (GB): 0.9241156578063965, memory reserved (GB): 0.939453125, memory max reserved (GB): 0.939453125, rss (GB): 2.8313980102539062 memory device used (GB): 3.9052734375
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m Elapsed time: 0.2737 seconds
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m Elapsed time: 0.4404 seconds
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m [2026-02-02 05:44:01] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 52295] reference/compute_log_probs_end_onload, memory allocated (GB): 0.9325079917907715, memory reserved (GB): 3.12890625, memory max reserved (GB): 3.12890625, rss (GB): 2.8313980102539062 memory device used (GB): 6.0947265625
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m [2026-02-02 05:44:01] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 52295] reference/compute_log_probs_end_offload, memory allocated (GB): 0.003999233245849609, memory reserved (GB): 0.021484375, memory max reserved (GB): 3.12890625, rss (GB): 2.8313980102539062 memory device used (GB): 2.9873046875
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m Elapsed time: 0.2669 seconds
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m Elapsed time: 0.9812 seconds
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m [2026-02-02 05:46:55] [context_managers.py (41)] [INFO] [reference-0 0 / 1][PID 52295] reference/compute_log_probs_start_offload, memory allocated (GB): 0.003907680511474609, memory reserved (GB): 0.021484375, memory max reserved (GB): 0.021484375, rss (GB): 2.8315505981445312 memory device used (GB): 2.9873046875
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m Elapsed time: 0.3105 seconds
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m Elapsed time: 0.4399 seconds
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m Elapsed time: 0.2614 seconds
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m Elapsed time: 1.0120 seconds
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m Elapsed time: 0.1715 seconds
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m Elapsed time: 0.4413 seconds
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m Elapsed time: 0.3113 seconds
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m Elapsed time: 0.9243 seconds
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m Elapsed time: 0.1555 seconds
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m Elapsed time: 0.4408 seconds
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m Elapsed time: 0.1689 seconds
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m Elapsed time: 0.7655 seconds
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m Elapsed time: 0.1972 seconds
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m Elapsed time: 0.4295 seconds
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m Elapsed time: 0.2991 seconds
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m Elapsed time: 0.9260 seconds
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m Elapsed time: 0.0575 seconds
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m Elapsed time: 0.4371 seconds
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m Elapsed time: 0.1170 seconds
+[36m(ActorWorker(reference-0) pid=52295, ip=172.17.0.2)[0m Elapsed time: 0.6118 seconds
